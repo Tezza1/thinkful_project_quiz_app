@@ -5,8 +5,8 @@ function clickNext() {
         event.preventDefault();
         const navigation = [
             "html_quiz.html",
-            "css_quiz.html",
-            "js_quiz.html"
+            "quiz.html#css",
+            "quiz.html#js"
         ];
         
         let checkedItem = getOptionInfo(); 

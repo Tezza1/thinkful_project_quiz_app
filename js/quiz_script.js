@@ -29,7 +29,7 @@ const css_quiz_data = [
         option_2: "Display the label of a checkbox in a different color when the checkbox is checked.",
         option_3: "Give the even and odd rows of a table different background colors.",
         option_4: "Add a drop-shadow to a hyperlink when a user hovers their mouse over it.",
-        answer:  1, // "Display the first line of a paragraph in bold text.",
+        answer:  0, // "Display the first line of a paragraph in bold text.",
         answerText:  "Display the first line of a paragraph in bold text.",
         explanation: "The other choices are all 'pseudo-classes'. A 'pseudo-class' is a particular state in which an actual HTML element can find itself. A 'pseudo-element' is a part of the document that CSS lets you style even though it isn’t an actual HTML element."
     },
@@ -70,10 +70,10 @@ const js_quiz_data = [
     },
     {
         id: 1,
-        question: `What will the following log:
-                    let y = "5";
-                    let x = + y;
-                    console.log(typeof y + " " + typeof x);`,
+        question: `What will the following log:<xmp>
+let y = "5";
+let x = + y;
+console.log(typeof y + " " + typeof x);</xmp>`,
         option_1: "string string",
         option_2: "string number",
         option_3: "string undefined",
@@ -83,37 +83,37 @@ const js_quiz_data = [
     },
     {
         id: 2,
-        question: `What will the following log:
-                    let obj = {
-                        mickey: 'mouse',
-                        func: function() {
-                            let self = this;   
-                            (function() {
-                                console.log(this.mickey + ' ' + self.mickey);
-                            }());
-                        }
-                    };
-                    obj.func();`,
-        option_1: "mouse mouse",
-        option_2: "undefined undefined",
-        option_3: "undefined mouse",
+        question: `What will the following log:<xmp>
+let obj = {
+mickey: 'mouse',
+func: function() {
+    let self = this;   
+    (function() {
+     console.log(this.mickey + self.mickey);
+    }());
+}
+};
+obj.func();</xmp>`,
+        option_1: "mousemouse",
+        option_2: "undefinedundefined",
+        option_3: "undefinedmouse",
         option_4: "nothing - the function won't run",
         answer: 2, // "undefined mouse"
         explanation: "In the outer function, both “this” and “self” refer to 'obj' and can access 'mickey'. In the inner function, 'self' remains within scope while 'this' can no longer access 'obj'."
     },
     {
         id: 3,
-        question: `What will the following log:
+        question: `What will the following log:<xmp>
 
-                    let foo = ['this', 'array', 'is', 'full'];
-                    let buzz = foo;
-                    foo = [];
-                    
-                    let foo1 = ['this', 'array', 'is', 'full'];
-                    let buzz1 = foo1;
-                    foo1.length = 0;
+let foo = ['this', 'array', 'is', 'full'];
+let buzz = foo;
+foo = [];
 
-                    console.log(buzz + ' ' + buzz1);`,
+let foo1 = ['this', 'array', 'is', 'full'];
+let buzz1 = foo1;
+foo1.length = 0;
+
+console.log(buzz + ' ' + buzz1);</xmp>`,
         option_1: "[] []",
         option_2: "[] [undefined]",
         option_3: "[this,array,is,full] [this,array,is,full]",
@@ -123,15 +123,15 @@ const js_quiz_data = [
     },
     {
         id: 4,
-        question: `What will the following log:
+        question: `What will the following log:<xmp>
 
-                    'use strict';
+'use strict';
 
-                    let output = function(){
-                        return 'Hello world!!!'
-                    }
-                    delete output;
-                    console.log(output());`,
+let output = function(){
+    return 'Hello world!!!'
+}
+delete output;
+console.log(output());</xmp>`,
         option_1: "ƒ(){return 'Hello world!!!'}",
         option_2: "Error message",
         option_3: "undefined",
@@ -141,11 +141,46 @@ const js_quiz_data = [
     }
 ];
 
-
 // keep track of the current questions
+let quiz_data;
 let question_number = 0;
 let advance_to_next_question = false;
 let score = 0;
+let reTryQuestion = false;
+
+/*
+var pathname = window.location.pathname; // Returns path only
+var url      = window.location.href;     // Returns full URL
+*/
+
+function getData(){
+    let pathName = window.location.href.split('#')[1];
+    let title = "";
+    if (pathName === "css"){
+        quiz_data = css_quiz_data;
+        title = "css";
+    }
+    else if (pathName === "js") {
+        quiz_data = js_quiz_data;
+        title="js"
+    }
+    else {
+        alert("Error. Please return to home screen.")
+    }
+    
+    renderTitle(title);
+    handleQuiz();
+    
+}
+
+function renderTitle(title){
+    if(title === "css"){
+        $(".quiz-title").html("<h2><i class='fab fa-css3'></i> CSS Quiz</h2>");
+    }
+    else {
+        $(".quiz-title").html("<h2><i class='fab fa-js-square'></i> JS Quiz</h2>");
+    }
+}
 
 function renderQuestionNumber(qs_num) {
     $(".js-question-number").html(`${qs_num + 1}`)
@@ -154,13 +189,13 @@ function renderQuestionNumber(qs_num) {
 function renderQuestion(qs_num) {
     $('.content').html(`
     <div class="content-text">
-        <p>${css_quiz_data[qs_num].question}</p>    
+        <p>${quiz_data[qs_num].question}</p>    
     </div>
     <form>
-        <label for="option1"><input type="radio" name="options" value="opt1" id="option1"> ${css_quiz_data[qs_num].option_1} </label>
-        <label for="option2"><input type="radio" name="options" value="opt2" id="option2"> ${css_quiz_data[qs_num].option_2} </label>
-        <label for="option3"><input type="radio" name="options" value="opt3" id="option3"> ${css_quiz_data[qs_num].option_3} </label>
-        <label for="option4"><input type="radio" name="options" value="opt4" id="option4"> ${css_quiz_data[qs_num].option_4} </label>
+        <label for="option1"><input type="radio" name="options" value="opt1" id="option1"> ${quiz_data[qs_num].option_1} </label>
+        <label for="option2"><input type="radio" name="options" value="opt2" id="option2"> ${quiz_data[qs_num].option_2} </label>
+        <label for="option3"><input type="radio" name="options" value="opt3" id="option3"> ${quiz_data[qs_num].option_3} </label>
+        <label for="option4"><input type="radio" name="options" value="opt4" id="option4"> ${quiz_data[qs_num].option_4} </label>
         <div class="buttons">
             <input type="submit" value="Submit" class="js-submit-button"/>
             <input type="submit" value="Next" class="js-next-button"/>    
@@ -175,11 +210,15 @@ function clickSubmit() {
         
         let checkedItem = getOptionInfo(); 
         if (checkedItem < 0) {
-            alert("Please select an answer to proceed")
+            alert("Please select an answer to proceed");
         } 
+        else if (reTryQuestion) {
+            alert("You have already tried this question. Please proceed to the next question.");
+        }
         else {
             checkAnswer(checkedItem);
             advance_to_next_question = true;
+            reTryQuestion = true;
         }
     })
 }
@@ -220,7 +259,7 @@ function getOptionInfo(){
 
 
 function checkAnswer(answer) {
-    if (answer === css_quiz_data[question_number].answer) {
+    if (answer === quiz_data[question_number].answer) {
         $('.middle-column-bottom').html("<h4>Status: Correct</h4>")
         score++;
         $('.js-score').html(`${score}`);
@@ -230,18 +269,18 @@ function checkAnswer(answer) {
     }
     
     $('.middle-column-bottom').append(`
-        <p>Answer: ${css_quiz_data[question_number].answerText}</p>
-        <p>Explanation: ${css_quiz_data[question_number].explanation}</p>
+        <p>Answer: ${quiz_data[question_number].answerText}</p>
+        <p>Explanation: ${quiz_data[question_number].explanation}</p>
     `)
 }
 
 function clickNext(){
     $('.js-next-button').on('click', function(event){
         event.preventDefault();
-        
         if(advance_to_next_question){
            question_number++;
            advance_to_next_question = false;
+           reTryQuestion = false;
            handleQuiz();
         }
         else {
@@ -266,7 +305,7 @@ function renderFinalScore(){
          <div class="main-content-box">
             <div class="content">
                 <h4>Congratulations!</h4>
-                <h4>You completed the CSS Quiz</h4>
+                <h4>You completed the quiz.</h4>
                 <h3>You scored ${score} / 5 (${(score/5)*100}%).</h3>
             </div>
             <ul class="final-score">
@@ -298,4 +337,4 @@ function handleQuiz(){
     }
 }
 
-$(handleQuiz)
+$(getData)

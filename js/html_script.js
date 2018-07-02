@@ -155,11 +155,11 @@ $( function() {
             $("."+dragClass+2).css({"background":"white","font-weight":"normal", "color": "black", "padding": "0.3em", "border": "none"}).html(text);
             text = "";
             if (score === 8) {
-                $('.score').append(`
-                    <div>
+                $('.score-title').append(`
+                    <div style="margin-top: 2em;">
                         <p>Congratulation!</p>
                         <p>You finished!</p>
-                        <a href="index.html">Return to start</a>
+                        <a href="index.html"><i class="fas fa-angle-double-left"></i> Return to start</a>
                     </div>
                 `)
             }
