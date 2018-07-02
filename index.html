@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Terry Shenker - Thinkful Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Interactive quiz app</h1> 
+        <p>First project for Thinkful Bootcamp</p> 
+        <h5>By: Terry Shenker</h5> 
+    </div>
+    <div class="container">
+        <div class="col">
+            <div class="card-columns">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 1:</h4>
+                        <p class="card-text">Understanding user experience requirements</p>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 2:</h4>
+                        <p class="card-text">Gather content for your app, ensure sufficient content.</p>
+                        <a href="content.html">
+                            <button type="button" class="btn btn-primary">
+                                Open
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 3:</h4>
+                        <p class="card-text">Create a mock-up of your design to get buy-in</p>
+                        <a href="mock_up.html">
+                            <button type="button" class="btn btn-primary">
+                                Open
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 4:</h4>
+                        <p class="card-text">Create a basic layout of your prototype ("back of napkin" design)</p>
+                        <button type="button" class="btn btn-primary" onclick="alert('TBA - please move onto next step. :)')">
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 5:</h4>
+                        <p class="card-text">Create greybox HTML wireframes from your prototype design</p>
+                        <a href="https://repl.it/@Terryds/Interactive-quiz-app" target="_blank" >
+                            <button type="button" class="btn btn-primary">
+                                Open
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 6:</h4>
+                        <p class="card-text">Model data and fucntions, then implement your codebase</p>
+                        <button type="button" class="btn btn-primary disabled" data-toggle="modal" data-target="#myModal1">
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 7:</h4>
+                        <p class="card-text">Implement the design of your app and include a11y and responsive design</p>
+                        <button type="button" class="btn btn-primary disabled" data-toggle="modal" data-target="#myModal1">
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 8:</h4>
+                        <p class="card-text">Ensure functionality, validate HTML, CSS and test your app</p>
+                        <button type="button" class="btn btn-primary disabled" data-toggle="modal" data-target="#myModal1">
+                            Open
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Step 9:</h4>
+                        <p class="card-text">Launch your app, inform stakeholders and monitor</p>
+                        <button type="button" class="btn btn-primary disabled" data-toggle="modal" data-target="#myModal1">
+                            Open
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End column -->
+    </div><!-- end container -->
+    
+    <!-- STEP 1 MODAL -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">User experience requirements</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <ul>
+                        <p>The following requirements cover what the app must do, from the user's perspective.</p>
+                       <li>The starting screen should have a button that users can click to start the quiz.</li>
+                       <li>
+                           Users should be prompted through a series of at least 5 multiple choice questions that they can answer.
+                           <ul>
+                               <li>Users should be asked questions 1 after the other.</li>
+                               <li>Users should only be prompted with 1 question at a time.</li>
+                           </ul>
+                       </li>
+                       <li>Users should not be able to skip questions.</li>
+                       <li>Users should also be able to see which question they're on (for instance, "7 out of 10") and their current score ("5 correct, 2 incorrect").</li>
+                       <li>
+                           Upon submitting an answer, users should:
+                           <ul>
+                               <li>receive textual feedback about their answer. If they were incorrect, they should be told the correct answer.</li>
+                               <li>be moved onto the next question (or interact with an element to move on).</li>
+                           </ul>
+                       </li>
+                       <li>Users should be shown their overall score at the end of the quiz. In other words, how many questions they got right out of the total questions asked.</li>
+                       <li>Users should be able to start a new quiz.</li>
+                    </ul>
+                </div>
+            
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+        
+            </div><!-- end modal content -->
+        </div>
+    </div>
+         
+</body>
+</html>
