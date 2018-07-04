@@ -15,3 +15,6 @@ Please see landing page for additional information
 
 ### Landing page:
 [Quiz App Landing Page](http://www.terrywebdev.services/project_%20interactive_quiz_app/ "Project submission hosted on Siteground")
+
+### Live version:
+[Live app](http://www.terrywebdev.services/project_%20interactive_quiz_app/app "Project submission hosted on Siteground")
