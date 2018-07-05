@@ -19,26 +19,27 @@
             <img class="logo" src="../img/tflogosquare.png" alt="Thinkful logo" />
         </div>
     </header>
-    <aside role="note">
-      <div class="quiz-title">
-                        
-       </div>
-       <h3>Current score: <span class="js-score">0</span></h3>
-    </aside>
     <main role="main">
         <div class="main-content-box">
             <div class="content">
-                <h3>Question <span class="js-question-number"></span> / 5</h3>
                 <div class="content-text">
-                    
+                    <h2>Front End Developer Quiz</h2>
+                    <h4>Interview readiness prep</h4>
                 </div>
                 <form role="form">
-                    <fieldset>
-                        <legend><span>Multiple Choice Answers</span></legend>
-                        <div class="form-data">
-                                    
-                        </div>
-                    </fieldset>
+                    <label for="option1">
+                        <input type="radio" name="options" value="0" id="option1" required> 
+                        <i class="fab fa-css3"></i> CSS
+                    </label>
+                    <label for="option2">
+                        <input type="radio" name="options" value="1" id="option2" required> 
+                        <i class="fab fa-js-square"></i> Javascript 
+                    </label>
+                    <label for="option3">
+                        <input type="radio" name="options" value="2" id="option3" required> 
+                            <i class="fab fa-html5"></i> HTML 
+                            <span class="label-extra">(Drag 'n Drop Desktop Quiz)</span>
+                    </label>
                     <div class="buttons">
                         <input type="submit" value="Next" class="js-submit-button"/>    
                     </div>
@@ -51,7 +52,6 @@
             <h4>Thinkful <i class="far fa-dot-circle"></i> Thoughful <i class="far fa-dot-circle"></i> Successful</h4>
         </div>
     </footer>
-    <script type="text/javascript" src="../js/quiz_data.js"></script>
-    <script type="text/javascript" src="../js/quiz_script.js"></script>
+    <script type="text/javascript" src="../js/index_script.js"></script>
 </body>
 </html>

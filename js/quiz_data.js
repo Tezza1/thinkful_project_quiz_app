@@ -10,7 +10,7 @@ const css_quiz_data = [
         question: "You want text on your website to be double-spaced by default. Which of the following line-height values is the best way to achieve this?",
         options: ["150%", "2em", "2", "double"],
         answer: 1, 
-        answerText: "2em",
+        answerText: "<xmp>2em</xmp>",
         explanation: "You could also use <xmp>200%</xmp> Whilst <xmp>double</xmp> is not valid here."
     },
     {
@@ -18,7 +18,7 @@ const css_quiz_data = [
         question: "Which of the following CSS properties, used by itself, can cause HTML elements to overlap?",
         options: ["z-index", "overflow", "background", "margin"],
         answer: 3, 
-        answerText: "margin",
+        answerText: "<xmp>margin</xmp>",
         explanation: "Negative margins make things overlap."
     },
     {
@@ -34,7 +34,7 @@ const css_quiz_data = [
         question: "How can you select all the PDF links?",
         options: ["a[attribute='.pdf']", "a[href$='.pdf']", "href[attribute$='value']", "a[href^='.pdf']"],
         answer: 1, 
-        answerText: "a[href$='.pdf']",
+        answerText: "<xmp>a[href$='.pdf']</xmp>",
         explanation: "The <xmp>[attribute$='value']</xmp> selector is used to select elements whose attribute value ends with a specified value. The <xmp>[attribute^='value']</xmp> selector is used to select elements whose attribute value begins with a specified value.The <xmp>[attribute*='value']</xmp> selector is used to select elements whose attribute value contains a specified value."
     },
     {
@@ -42,7 +42,7 @@ const css_quiz_data = [
         question: "Which choice means select all p elements that are anywhere preceded by a div element?",
         options: ["div ~ p", "div > p", "div + p", "div, p"],
         answer: 0, 
-        answerText: "div ~ p",
+        answerText: "<xmp>div ~ p</xmp>",
         explanation: "<xmp>div, p</xmp> Selects all div elements and all p elements. <xmp>div > p</xmp> Selects all p elements where the parent is a div element. <xmp>div + p</xmp> Selects all p elements that are placed immediately after div elements"
     }
 ];
@@ -51,9 +51,9 @@ const js_quiz_data = [
     {
         id: 0,
         question: `What will the following log: <xmp>console.log(0.4 + 0.1 === "0.5");</xmp>`,
-        options: ["False", "True", "Undefined", "NaN"],
+        options: ["false", "true", "undefined", "NaN"],
         answer: 0, 
-        answerText: "False",
+        answerText: "<xmp>false</xmp>",
         explanation: `But <xmp>(0.4 + 0.1 == '0.5')</xmp> will print out true.`
     },
     {
@@ -64,7 +64,7 @@ let x = + y;
 console.log(typeof y + " " + typeof x);</xmp>`,
         options: ["string string", "string number", "string undefined", "string null"],
         answer: 1, 
-        answerText: "string number",
+        answerText: "<xmp>string number</xmp>",
         explanation: "The unary + operator can be used to convert a variable to a number if possible, otherwise it will return <xmp>NaN</xmp>"
     },
     {
@@ -82,7 +82,7 @@ func: function() {
 obj.func();</xmp>`,
         options: ["mouse mouse", "undefined undefined", "undefined mouse", "nothing - the function won't run"],
         answer: 2, 
-        answerText: "undefined mouse",
+        answerText: "<xmp>undefined mouse</xmp>",
         explanation: "In the outer function, both “this” and “self” refer to 'obj' and can access 'mickey'. In the inner function, 'self' remains within scope while 'this' can no longer access 'obj'."
     },
     {
@@ -100,7 +100,7 @@ foo1.length = 0;
 console.log(buzz + ' ' + buzz1);</xmp>`,
         options: ["[] []", "[] [undefined]", "[this,array,is,full] [this,array,is,full]", "[this,array,is,full] []"],
         answer: 3, 
-        answerText: "[this,array,is,full] []",
+        answerText: "<xmp>[this,array,is,full] []</xmp>",
         explanation: "When using <xmp>foo = []</xmp> this creates a new empty array. However, if the array is referenced anywhere else, the original array will remain unchanged. This can lead to potential bugs when solving problems. A more robust method is <xmp>foo1.length = 0</xmp> which not only clears the array but updates all reference variables that point to this original array."
     },
     {
@@ -122,7 +122,7 @@ console.log(output());</xmp>`,
 ];
 
 const results = [
-    "<p>Please setup a meeting with your program co-ordintor to work out the best way forward</p>",
+    "<p>Please setup a meeting with your program co-ordinator to work out the best way forward</p>",
     "<p>Please speak to your mentor and put additional time aside to study each week.</p>",
     "<p>Please review and speak to your mentor.</p>",
     "<p>Pass! You are on the way.</p>",

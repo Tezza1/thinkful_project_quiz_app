@@ -46,7 +46,8 @@ function renderQuestion(qs_num) {
     $('.form-data').html(optionString);
 }
 
-$('.js-submit-button').on('click', function(event){
+//$('form').on('submit', '.js-submit-button', function(event){
+$('form').submit(function(event){
     event.preventDefault();
     if (!next_question){
         next_question = true;
@@ -58,8 +59,7 @@ $('.js-submit-button').on('click', function(event){
         question_number++;
         handleQuiz(); 
     }
-
-})
+});
 
 function getOptionInfo(){
     let item = -1;
@@ -76,7 +76,7 @@ function getOptionInfo(){
 function checkAnswer(answer) {
     if (answer === quiz_data[question_number].answer) {
         $('.form-data').html(`
-            <h4>Correct</h4>
+            <h4><i class="fas fa-check-circle"></i> Correct</h4>
             <p>${quiz_data[question_number].explanation}</p>
         `)
         score++;
@@ -84,7 +84,7 @@ function checkAnswer(answer) {
     }    
     else {
         $('.form-data').html(`
-            <h4>Incorrect</h4>
+            <h4><i class="fas fa-times-circle"></i> Incorrect</h4>
             <p>The answer is: ${quiz_data[question_number].answerText}</p>
             <p>${quiz_data[question_number].explanation}</p>
         `)

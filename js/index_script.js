@@ -1,21 +1,22 @@
 'use strict';
 
 function clickNext() {
-    $('.js-submit-button').on('click', function(event){
+    $('form').on('click', '.js-submit-button', function(event){
         event.preventDefault();
         const navigation = [
-            "quiz.html#css",
-            "quiz.html#js",
-            "html_quiz.html",
+            'quiz.html#css',
+            'quiz.html#js',
+            'html_quiz.html',
         ];
         
-        let checkedItem = getOptionInfo(); 
-        if (checkedItem < 0) {
-            alert("Select a quiz")
-        }
-        else {
+        let checkedItem = getOptionInfo();
+        if (checkedItem >= 0) {
             window.location = navigation[checkedItem];
         }
+        else {
+            $('fieldset').append('<span class="warning-message"><i class="fas fa-exclamation-triangle"></i> Select a quiz to proceed</span>');
+        }
+            
     })   
 }
 
