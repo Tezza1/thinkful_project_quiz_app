@@ -41,9 +41,7 @@ fieldset {
 legend span {
     font-size: 1px;
     display: block;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+    color: white;
 }
 
 label {
@@ -65,12 +63,6 @@ label:hover {
 
 label i {
     margin: auto 0.6em;
-}
-
-.label-extra {
-    font-size: 70%;
-    color: grey;
-    font-style: italic;
 }
 
 .warning-message {
@@ -148,12 +140,13 @@ xmp {
         float: none;
     }
 }
-    
+
 @media only screen and (max-width: 480px) {
     .logo {
     height: 4em;
     margin: -3em auto 1em;
     }
+    
     .main-content-box {
       width: 20em;
     }
