@@ -106,6 +106,7 @@ xmp {
     color: #42a2ef;
     font-weight: bold;
     font-size: 1.1em;
+    overflow: auto;
 }
 
 .link-to-index {

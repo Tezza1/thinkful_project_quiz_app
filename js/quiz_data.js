@@ -115,7 +115,7 @@ let output = function(){
 delete output;
 console.log(output());</xmp>`,
         options: ["ƒ(){return 'Hello world!!!'}", "Error message", "undefined", "Hello world!!!"],
-        answer: 2, 
+        answer: 1, 
         answerText: "Error message",
         explanation: "<xmp>Error message</xmp><xmp>Delete of an unqualified identifier in strict mode.</xmp> When in strict mode, if delete is used on a direct reference to a variable, a function argument or a function name, it will throw a SyntaxError."
     }

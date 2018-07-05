@@ -1,3 +1,5 @@
+'use strict';
+
 let quiz_data;
 let question_number = 0;
 let next_question = false;
